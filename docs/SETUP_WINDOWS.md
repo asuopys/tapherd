@@ -23,7 +23,7 @@ The script installs uv and Android Platform-Tools for your user, then TapHerd, a
 
 1. Turn on virtualization. In your BIOS or UEFI, enable **Intel VT-x** or **AMD-V** (often called SVM). In Windows, open **Turn Windows features on or off**, tick **Windows Hypervisor Platform**, and restart.
 2. Download [Android Studio](https://developer.android.com/studio) and run the installer. Choose the **Standard** setup, which downloads the SDK, the emulator, and Platform-Tools.
-3. Open **More Actions → Virtual Device Manager**. Create a **Pixel** device with the Play Store icon and a **Google Play** system image at **API 34 or later** with architecture **x86_64**. On an Arm Windows laptop, choose **arm64-v8a**.
+3. Open **More Actions → Virtual Device Manager**. Create a **Pixel** device with the Play Store icon and a **Google Play** system image at **API 34 or later** with architecture **x86_64**. On an Arm Windows laptop, choose **arm64-v8a**. TikTok usually can't post from an `x86_64` emulator; use a real phone for TikTok. [Why](TROUBLESHOOTING.md#tiktok-says-couldnt-post-and-saves-a-draft)
 4. Start it and wait for the home screen. `adb devices -l` should list `emulator-5554  device`.
 
 Android Studio's SDK lives in `%LOCALAPPDATA%\Android\Sdk`. If `adb` isn't found, add `%LOCALAPPDATA%\Android\Sdk\platform-tools` to your user PATH.

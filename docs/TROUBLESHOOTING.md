@@ -60,6 +60,12 @@ Run `tapherd prepare-app <serial> <package>` before opening the app. It allows a
 
 Some emulator versions reject the first transfer method. TapHerd automatically retries with the `adb push` tool. If it still fails, check that the file exists and is a video or image, and run `adb devices` to confirm the device is online.
 
+## TikTok says "Couldn't post" and saves a draft
+
+This comes from TikTok, not TapHerd. TikTok often refuses to post from an emulator on a Windows or Linux PC with an Intel or AMD processor. The emulator is `x86_64`, and TikTok only ships Arm code, so it runs through a translation layer. When the upload fails, TikTok moves the video to **Drafts** by itself.
+
+To post to TikTok, use a real Android phone with USB debugging on, or an `arm64-v8a` emulator on an Arm computer such as a Mac with Apple silicon. Then open the draft and tap **Post**, or post the video again. TapHerd won't try to hide that a device is an emulator. [Acceptable use](ACCEPTABLE_USE.md)
+
 ## A recipe returned `needs_ai`
 
 That's on purpose. The recipe couldn't confirm a step, so it stopped instead of guessing. The result includes the failed step, a fresh screen tree, and a screenshot path. Your AI client can finish the job with the generic tools. If a recipe keeps stopping at the same step after an app update, open a recipe report. [Recipes](RECIPES.md)
