@@ -6,6 +6,9 @@ All notable changes are listed here. TapHerd follows [Semantic Versioning](https
 
 ### Changed
 
+- Posting publishes instead of stopping at drafts. The MCP server tells your AI to finish with the app's final Post, Share, or Upload button, never to save a draft unless you ask, and to use the visibility you ask for (public if you don't say).
+- `youtube_shorts_post` now defaults to `public` visibility. Pass `visibility=private` or `unlisted` for a test run.
+- The Supabase waitlist migrations are no longer in the repository.
 - `tap`, `swipe`, `type-text`, and `press-key` print a one-line confirmation. The `tap` MCP tool returns the coordinates it tapped.
 
 ## [0.1.1] - 2026-11-19

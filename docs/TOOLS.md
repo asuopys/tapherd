@@ -186,13 +186,13 @@ Lists posting recipes, with their test status and parameters. Takes no parameter
 
 ### `run_recipe`
 
-Runs a posting recipe on one or more active devices. If any step can't be confirmed, that device returns `needs_ai` with the failed step, a fresh UI tree, and a screenshot path, so your agent can finish with the generic tools. A recipe never retries after its publish tap without checking whether the post already exists.
+Runs a posting recipe on one or more active devices. If any step can't be confirmed, that device returns `needs_ai` with the failed step, a fresh UI tree, and a screenshot path, so your agent can finish with the generic tools. Recipes publish the post rather than saving a draft. Pass the visibility the user wants; the YouTube Shorts recipe defaults to `public`. A recipe never retries after its publish tap without checking whether the post already exists.
 
 | Parameter | Type | Notes |
 | --- | --- | --- |
 | `name` | string | From `list_recipes` |
 | `serials` | list of strings | Up to three active devices |
-| `params` | object of strings | The recipe's parameters, for example `{"video_path": "/Users/me/clip.mp4", "title": "…", "visibility": "private"}` |
+| `params` | object of strings | The recipe's parameters, for example `{"video_path": "/Users/me/clip.mp4", "title": "…", "visibility": "public"}` |
 
 ```json
 {"ok": false, "recipe": "youtube_shorts_post", "recipe_status": "unverified", "run_id": "…", "results": [{"serial": "emulator-5556", "status": "needs_ai", "failed_step": "wait_for_upload_menu", "reason": "…", "screenshot_path": "…/runs/…/emulator-5556.png", "ui_tree": [], "ui_tree_source": "current", "media_path": "/sdcard/DCIM/TapHerd/…mp4", "publish_state": "not_attempted"}]}

@@ -78,9 +78,9 @@ Settings opens, then **Network & internet**. Your AI can now read the screen, ta
 
 Put the video where your AI can read it, then ask something like:
 
-> Using TapHerd, copy launch.mp4 to my phone and post it to TikTok, Instagram Reels, and YouTube Shorts. Write a caption and tags for each. Keep the Short private. Delete the copy from the phone when you're done.
+> Using TapHerd, copy launch.mp4 to my phone and post it to TikTok, Instagram Reels, and YouTube Shorts. Write a caption and tags for each, and post them publicly. Delete the copy from the phone when you're done.
 
-Your AI uses `push_media` to copy the file, `prepare_app` to allow photo access and turn off camera and microphone prompts, taps through each app, and finishes with `remove_media`. Start with private visibility while you try it, and only post to accounts you own. [Acceptable use](ACCEPTABLE_USE.md)
+Your AI uses `push_media` to copy the file, `prepare_app` to allow photo access and turn off camera and microphone prompts, taps through each app, and finishes with `remove_media`. It publishes each post with the visibility you ask for, such as Public, Unlisted, Friends, or Only me. If you don't say, it posts publicly. Only post to accounts you own. [Acceptable use](ACCEPTABLE_USE.md)
 
 ## 7. Add more phones (optional)
 

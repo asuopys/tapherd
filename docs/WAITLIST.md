@@ -27,7 +27,7 @@ Mailbox ownership requires a confirmation email.
    supabase db push
    ```
 
-   This applies the [table migration](../supabase/migrations/20261119000000_waitlist.sql) and the [domain check](../supabase/migrations/20261119000100_waitlist_email_domain.sql). Anonymous visitors can only add rows. They can't read, change, or delete the list.
+   This applies the waitlist table and its email domain check from your local `supabase/migrations` folder. The migrations aren't part of this repository. Anonymous visitors can only add rows. They can't read, change, or delete the list.
 3. In **Project Settings → API Keys**, copy the **Project URL** and the **publishable key** (`sb_publishable_…`). The legacy `anon` key also works. Never use the `secret` or `service_role` key on the page.
 4. In `site/index.html`, fill in the signup form's two attributes.
 

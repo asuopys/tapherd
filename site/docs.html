@@ -377,10 +377,10 @@ Ready. Next, connect your AI: tapherd config mcp --client claude-code (or codex,
           <ol class="steps">
             <li>Put the video somewhere your AI can read, such as your project folder.</li>
             <li>Ask your AI something like:
-              <div class="code"><pre class="wrap-lines"><code>Using TapHerd, copy launch.mp4 to my phone and post it to TikTok, Instagram Reels, and YouTube Shorts. Write a caption and tags for each. Keep the Short private. Delete the copy from the phone when you're done.</code></pre></div></li>
+              <div class="code"><pre class="wrap-lines"><code>Using TapHerd, copy launch.mp4 to my phone and post it to TikTok, Instagram Reels, and YouTube Shorts. Write a caption and tags for each, and post them publicly. Delete the copy from the phone when you're done.</code></pre></div></li>
             <li>Watch it work. It uses <code>push_media</code> to copy the file, <code>prepare_app</code> to allow photo access and turn off camera and microphone prompts, taps through each app, and finishes with <code>remove_media</code>.</li>
           </ol>
-          <p class="tip">Start with private or "Only you" visibility while you try it. App screens change often, so your AI checks each screen before tapping. Only post to accounts you own. <a class="link" href="https://github.com/asuopys/tapherd/blob/main/docs/ACCEPTABLE_USE.md">Acceptable use</a></p>
+          <p class="tip">Your AI publishes each post with the visibility you ask for, such as Public, Friends, or Only you. If you don't say, it posts publicly. App screens change often, so your AI checks each screen before tapping. Only post to accounts you own. <a class="link" href="https://github.com/asuopys/tapherd/blob/main/docs/ACCEPTABLE_USE.md">Acceptable use</a></p>
         </section>
 
         <!-- 7 -->

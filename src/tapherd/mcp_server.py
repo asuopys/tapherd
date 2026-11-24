@@ -80,11 +80,22 @@ class TapHerdMCP(FastMCP):
             return _reply({"error": message}, error=True)
 
 
+INSTRUCTIONS = (
+    "Control your own Android devices. List devices first and use an active serial.\n"
+    "When the user asks you to post, publish the post: finish with the app's final "
+    "Post, Share, or Upload button. Never save it as a draft unless the user asks for "
+    "a draft. Use the visibility the user asked for (for example Public, Everyone, "
+    "Friends, Unlisted, Private, or Only me). If they didn't say, post publicly. "
+    "Before the final tap, check the screen shows that visibility. Afterwards, confirm "
+    "the post appears on the profile."
+)
+
+
 def create_server(registry: DeviceRegistry) -> TapHerdMCP:
     recipes = RecipeService(registry)
     server = TapHerdMCP(
         "TapHerd",
-        instructions="Control your own Android devices. List devices first and use an active serial.",
+        instructions=INSTRUCTIONS,
         log_level="WARNING",
         host=HTTP_HOST,
         port=HTTP_PORT,
@@ -301,7 +312,10 @@ def create_server(registry: DeviceRegistry) -> TapHerdMCP:
     async def run_recipe(
         name: str, serials: list[str], params: dict[str, str]
     ) -> CallToolResult:
-        """Run a posting recipe and return a result per device. Stop for review on needs_ai."""
+        """Run a posting recipe and return a result per device. Stop for review on needs_ai.
+
+        Pass the visibility the user asked for. Recipes publish publicly by default.
+        """
         result = await recipes.run(name, serials, params)
         return _reply(asdict(result), error=not result.completed)
 

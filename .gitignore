@@ -19,4 +19,4 @@ logs/
 runs/
 screenshots/
 .tapherd/
-/supabase/.temp/
+/supabase/

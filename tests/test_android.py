@@ -1120,7 +1120,7 @@ def test_mcp_lists_the_unverified_sample_and_runs_recipes_per_device(
                 if item["name"] == "youtube_shorts_post"
             )
             assert sample["status"] == "unverified"
-            assert sample["params"]["visibility"]["default"] == "private"
+            assert sample["params"]["visibility"]["default"] == "public"
             result = await client.call_tool(
                 "run_recipe",
                 {

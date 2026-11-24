@@ -1,6 +1,8 @@
 import re
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 REPO = "https://github.com/asuopys/tapherd"
@@ -155,9 +157,11 @@ def _page_valid(email: str, page: str) -> bool:
 
 
 def test_page_and_database_accept_the_same_emails() -> None:
-    migration = next(
-        (ROOT / "supabase" / "migrations").glob("*_waitlist.sql")
-    ).read_text(encoding="utf-8")
+    # The migrations live only in the maintainer's local checkout, not in Git.
+    found = sorted((ROOT / "supabase" / "migrations").glob("*_waitlist.sql"))
+    if not found:
+        pytest.skip("Supabase migrations are kept out of the repository")
+    migration = found[0].read_text(encoding="utf-8")
     page = _page()
     for email, expected in EMAIL_CASES.items():
         assert _sql_valid(email, migration) is expected, email

@@ -16,8 +16,8 @@ params:
   visibility:
     type: choice
     choices: [private, unlisted, public]
-    default: private
-    description: Visibility that must be confirmed on the upload screen.
+    default: public
+    description: Who can see the Short. Pass private or unlisted for a test. The recipe confirms it on the upload screen before publishing.
 steps:
   - id: allow_media
     type: prepare_app
